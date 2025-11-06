@@ -7,10 +7,19 @@ app = Flask(__name__, static_folder='static')
 CORS(app)
 
 # Database configuration dd
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///main.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+
+class User(db.Model):
+    usertype = db.Column(db.Integer, primary_key=True) # 0 for student, 1 for teacher, 2 for admin
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
+
+    def to_dict(self):
+        return {'username': self.username, 'email': self.email}
+
 
 @app.route('/')
 def index():
