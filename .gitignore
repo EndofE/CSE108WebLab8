@@ -1,0 +1,44 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/settings.json
+.vscode/launch.json
+public/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+dist-ssr/
+*.local
+
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Cache
+.cache/
+.parcel-cache/
+
+# Optional npm cache
+.npm
+
+# Yarn
+yarn-error.log*
+out/
