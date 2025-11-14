@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>* Math 024 University</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; background: #e3e9f7; }
+        .container { width: 90%; margin: auto; padding-top: 20px; }
+        table { width: 100%; border-collapse: collapse; background: #ffffff; }
+        th, td { padding: 12px; border: 1px solid #7c8db3; }
+        th { background: #5271c2; color: white; }
+        .title { text-align: center; font-size: 28px; margin-bottom: 20px; }
+        button { padding: 6px 10px; cursor: pointer; }
+        .back { cursor: pointer; margin-bottom: 15px; display: inline-block; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title">University</div>
+    <div class="back" onclick="history.back()"></div>
+    <h2>*class name*</h2>
+<!-- table for grades -->
+
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Grade</th>
+            <th>Edit</th>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td id="g1">100</td>
+            <td><button onclick="editGrade('g1')">Edit</button></td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td id="g2">78</td>
+            <td><button onclick="editGrade('g2')">Edit</button></td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td id="g3">95</td>
+            <td><button onclick="editGrade('g3')">Edit</button></td>
+        </tr>
+
+        <tr>
+            <td>Name</td>
+            <td id="g4">76</td>
+            <td><button onclick="editGrade('g4')">Edit</button></td>
+        </tr>
+
+    </table>
+</div>
+<!-- editing func -->
+
+<script>
+function editGrade(id) {
+    const current = document.getElementById(id).innerText;
+    const newGrade = prompt("Enter new grade:", current);
+
+    if (newGrade !== null && newGrade !== "" && !isNaN(newGrade)) {
+        document.getElementById(id).innerText = newGrade;
+        alert("Grade updated!");
+    }
+}
+</script>
+
+</body>
+</html>
