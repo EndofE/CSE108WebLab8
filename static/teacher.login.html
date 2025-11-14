@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ACME University</title>
+    <style>
+        body { font-family: 'Times New Roman', Times, serif; background: #e3e9f7; }
+        .container { width: 90%; margin: auto; padding-top: 20px; }
+        table { width: 100%; border-collapse: collapse; background: #efefef; }
+        th, td { padding: 12px; border: 1px solid #7c8db3; }
+        th { background: #5271c2; color: white; }
+        a { color: #0033cc; text-decoration: none; }
+        .title { text-align: center; font-size: 28px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+<!-- Instuctor start  -->
+
+<div class="container">
+    <div class="title">University</div>
+    <h3>Welcome Insturctor!</h3>
+
+    <h2>Your Courses</h2>
+    <table>
+        <tr>
+            <th>Course Name</th>
+            <th>Teacher</th>
+            <th>Time</th>
+            <th>Students Enrolled</th>
+        </tr>
+
+        <tr onclick="goToClass('cs162')" style="cursor:pointer;">
+            <td><a href="#">Math 032</a></td>
+            <td>*teacher*</td>
+            <td>*time*</td>
+            <td>*how many students*</td>
+        </tr>
+
+        <tr onclick="goToClass('cs106')" style="cursor:pointer;">
+            <td><a href="#">Math 024</a></td>
+            <td>*teacher*</td>
+            <td>*time*</td>
+            <td>*how mant students*</td>
+        </tr>
+
+    </table>
+</div>
+
+<script>
+function goToClass(classID) {
+    window.location.href = classID + ".html";
+}
+</script>
+
+</body>
+</html>
