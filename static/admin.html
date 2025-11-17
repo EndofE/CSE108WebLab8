@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #e5ecf6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c4d85;
+        }
+        .admin-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .admin-card {
+            background-color: #587bbd;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .admin-card:hover {
+            background-color: #2c4d85;
+        }
+        .admin-card h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+        .admin-card p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .signout {
+            color: #587bbd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span>Admin Dashboard</span>
+        <a href="#" id="signOutBtn" class="signout">Sign out</a>
+    </div>
+
+    <h1>University Administration</h1>
+
+    <div class="admin-links">
+        <a href="/admin/user/" class="admin-card">
+            <h2>Manage Users</h2>
+            <p>Create, view, update, and delete users</p>
+        </a>
+
+        <a href="/admin/course/" class="admin-card">
+            <h2>Manage Courses</h2>
+            <p>Create, view, update, and delete courses</p>
+        </a>
+
+        <a href="/admin/enrollment/" class="admin-card">
+            <h2>Manage Enrollments</h2>
+            <p>View and manage student enrollments</p>
+        </a>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

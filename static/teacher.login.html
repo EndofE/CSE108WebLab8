@@ -1,55 +1,42 @@
+<!-- language: html -->
+<!-- File: 'static/teacher.login.html' -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ACME University</title>
+    <meta charset="UTF-8">
+    <title>Teacher Dashboard</title>
     <style>
-        body { font-family: 'Times New Roman', Times, serif; background: #e3e9f7; }
-        .container { width: 90%; margin: auto; padding-top: 20px; }
-        table { width: 100%; border-collapse: collapse; background: #efefef; }
-        th, td { padding: 12px; border: 1px solid #7c8db3; }
-        th { background: #5271c2; color: white; }
-        a { color: #0033cc; text-decoration: none; }
-        .title { text-align: center; font-size: 28px; margin-bottom: 20px; }
+        body { font-family: 'Times New Roman', Times, serif; background:#e3e9f7; margin:0; }
+        .container { max-width: 1100px; margin: 24px auto; background:#fff; padding: 24px; border-radius:10px; }
+        .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
+        .title { font-size: 28px; color:#2c4d85; }
+        a { color:#2c4d85; text-decoration:none; font-weight:bold; }
+        .course-card { border:1px solid #7c8db3; border-radius:8px; margin:16px 0; overflow:hidden; }
+        .course-head { background:#5271c2; color:#fff; padding:12px 16px; display:flex; justify-content:space-between; }
+        .course-meta { color:#eee; font-size: 14px; }
+        table { width:100%; border-collapse:collapse; background:#ffffff; }
+        th, td { padding:10px; border:1px solid #7c8db3; }
+        th { background:#8da8d8; color:#fff; }
+        button { padding:6px 10px; cursor:pointer; background:#5271c2; color:#fff; border:none; border-radius:4px; }
+        button:hover { background:#2c4d85; }
+        .empty { color:#555; padding: 12px 16px; }
     </style>
 </head>
 <body>
-<!-- Instuctor start  -->
-
 <div class="container">
-    <div class="title">University</div>
-    <h3>Welcome Insturctor!</h3>
+    <div class="header">
+        <div class="title">University — Teacher</div>
+        <div>
+            <span>Welcome, <span id="username">Teacher</span></span>
+            &nbsp;|&nbsp;
+            <a href="#" id="signOutBtn">Sign out</a>
+        </div>
+    </div>
 
     <h2>Your Courses</h2>
-    <table>
-        <tr>
-            <th>Course Name</th>
-            <th>Teacher</th>
-            <th>Time</th>
-            <th>Students Enrolled</th>
-        </tr>
-
-        <tr onclick="goToClass('cs162')" style="cursor:pointer;">
-            <td><a href="#">Math 032</a></td>
-            <td>*teacher*</td>
-            <td>*time*</td>
-            <td>*how many students*</td>
-        </tr>
-
-        <tr onclick="goToClass('cs106')" style="cursor:pointer;">
-            <td><a href="#">Math 024</a></td>
-            <td>*teacher*</td>
-            <td>*time*</td>
-            <td>*how mant students*</td>
-        </tr>
-
-    </table>
+    <div id="teacherCourses" class="courses"></div>
 </div>
 
-<script>
-function goToClass(classID) {
-    window.location.href = classID + ".html";
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
