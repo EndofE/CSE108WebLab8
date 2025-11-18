@@ -1,45 +1,90 @@
-    
-        body {
-            font-family: 'Times New Roman', Times, serif, sans-serif;
-            background-color: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap');
 
-        .login-container {
-            background-color: rgb(225, 235, 247);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px rgba(182, 228, 237, 0.589);
-            width: 300px;
-        }
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f9f0f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
-        .login-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+.login-container {
+    background-color: #fdf5f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(216, 167, 202, 0.589);
+    width: 300px;
+}
 
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 5px 0 15px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #9c4d82;
+}
 
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #b8d0e8;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.university-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #9c4d82;
+    letter-spacing: 1px;
+}
 
-        .login-container button:hover {
-            background-color: #b8d0e8;
-        }
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #e8c6dc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    outline: none;
+    border-color: #d8a7ca;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #e8c6dc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*activates when both input fields(user, pass) are filled */
+.login-container button.active {
+    opacity: 1;
+    background-color: #d8a7ca;
+    box-shadow: 0 4px 8px rgba(216, 167, 202, 0.3);
+}
+
+/* Hover visual for active button*/
+.login-container button.active:hover {
+    background-color: #c685b5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(198, 133, 181, 0.4);
+}
+
+/*click animation */
+.login-container button.active:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(198, 133, 181, 0.3);
+}
+
+/* Disabling the state styling */
+.login-container button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}

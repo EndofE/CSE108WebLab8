@@ -1,5 +1,39 @@
 const API_URL = window.location.origin;
 
+// Dynamic login button: makes it so that login is considered 
+// "active" when both user and pass are filled
+//"inactive" otherwise
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('loginForm');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginButton = loginForm ? loginForm.querySelector('button[type="submit"]') : null;
+
+    function updateLoginButton() {
+        if (loginButton && usernameInput && passwordInput) {
+            const usernameFilled = usernameInput.value.trim() !== '';
+            const passwordFilled = passwordInput.value.trim() !== '';
+            
+            if (usernameFilled && passwordFilled) {
+                loginButton.classList.add('active');
+                loginButton.disabled = false;
+            } else {
+                loginButton.classList.remove('active');
+                loginButton.disabled = true;
+            }
+        }
+    }
+
+    //event listeners to inputs
+    if (usernameInput && passwordInput) {
+        usernameInput.addEventListener('input', updateLoginButton);
+        passwordInput.addEventListener('input', updateLoginButton);
+        
+        //Checks if  page loads already filled (it shouldnt)
+        updateLoginButton();
+    }
+});
+
 // Login form handler
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
@@ -47,9 +81,12 @@ async function logout() {
             method: 'POST',
         });
         localStorage.removeItem('user');
+        //potential redirect
         window.location.href = '/';
     } catch (error) {
         console.error('Logout error:', error);
+        //Incase, redirects to home
+        window.location.href = '/';
     }
 }
 
@@ -64,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Load username if on coursepage
+    // Load username on all pages that have username, not just coursepage html
     const usernameSpan = document.getElementById('username');
     if (usernameSpan) {
         const user = JSON.parse(localStorage.getItem('user'));

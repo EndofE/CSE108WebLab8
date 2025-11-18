@@ -18,6 +18,14 @@ CORS(
     },
 )
 
+
+# added for log functionality for the admin and not others
+@app.route('/admin-dashboard')
+def admin_dashboard():
+    if 'user_id' not in session or session.get('usertype') != 2:
+        return redirect('/')
+    return send_from_directory(app.static_folder, 'admin.html')
+
 # Secret key for session management
 app.config['SECRET_KEY'] = 'your-secret-key-here'
 
@@ -101,6 +109,7 @@ class SecureModelView(ModelView):
 
     def inaccessible_callback(self, name, **kwargs):
         return redirect(url_for('index'))
+    
 class EnrollmentModelView(SecureModelView):
     column_list = ['id', 'student', 'course', 'grade']
     column_labels = {
@@ -121,6 +130,8 @@ class EnrollmentModelView(SecureModelView):
         # Filter to show only students (usertype=0)
         form_class.student.query_factory = lambda: User.query.filter_by(usertype=0).all()
         return form_class
+    
+    
 class CourseModelView(SecureModelView):
     column_list = ['id', 'course_name', 'course_code', 'teacher_name', 'time', 'capacity']
     form_columns = ['course_name', 'course_code', 'teacher_name', 'time', 'capacity']
@@ -173,7 +184,8 @@ def login():
     elif user.usertype == 1:  # Teacher
         redirect_url = '/teacher.login.html'
     else:  # Admin (usertype == 2)
-        redirect_url = '/admin.html'
+        #redirect_url = '/admin.html'
+        redirect_url = '/admin-dashboard'
 
     return jsonify({
         'success': True,

@@ -2,41 +2,201 @@
 <!-- File: 'static/teacher.login.html' -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Teacher Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body { font-family: 'Times New Roman', Times, serif; background:#e3e9f7; margin:0; }
-        .container { max-width: 1100px; margin: 24px auto; background:#fff; padding: 24px; border-radius:10px; }
-        .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; }
-        .title { font-size: 28px; color:#2c4d85; }
-        a { color:#2c4d85; text-decoration:none; font-weight:bold; }
-        .course-card { border:1px solid #7c8db3; border-radius:8px; margin:16px 0; overflow:hidden; }
-        .course-head { background:#5271c2; color:#fff; padding:12px 16px; display:flex; justify-content:space-between; }
-        .course-meta { color:#eee; font-size: 14px; }
-        table { width:100%; border-collapse:collapse; background:#ffffff; }
-        th, td { padding:10px; border:1px solid #7c8db3; }
-        th { background:#8da8d8; color:#fff; }
-        button { padding:6px 10px; cursor:pointer; background:#5271c2; color:#fff; border:none; border-radius:4px; }
-        button:hover { background:#2c4d85; }
-        .empty { color:#555; padding: 12px 16px; }
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background: #f9f0f5;
+        margin: 0;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 24px auto;
+        background: #fff;
+        padding: 24px;
+        border-radius: 10px;
+      }
+      .header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      a {
+        color: #9c4d82;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .course-card {
+        border: 1px solid #d4b0c7;
+        border-radius: 8px;
+        margin: 16px 0;
+        overflow: hidden;
+      }
+      .course-head {
+        background: #d8a7ca;
+        color: #fff;
+        padding: 12px 16px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .course-meta {
+        color: #eee;
+        font-size: 14px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #ffffff;
+      }
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #d4b0c7;
+      }
+      th {
+        background: #e8c6dc;
+        color: #fff;
+      }
+      button {
+        padding: 6px 10px;
+        cursor: pointer;
+        background: #d8a7ca;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+      }
+      button:hover {
+        background: #9c4d82;
+      }
+      .empty {
+        color: #555;
+        padding: 12px 16px;
+      }
+
+      .university-brand {
+        text-align: center;
+        margin: 10px 0 25px 0;
+        padding: 15px;
+        border-bottom: 2px solid #f5e6ef;
+      }
+
+      .university-name {
+        font-family: "Merriweather", serif;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #9c4d82;
+        letter-spacing: 1px;
+        margin: 0;
+      }
+
+      .teacher-welcome {
+        text-align: center;
+        margin: 30px 0;
+        padding: 25px;
+      }
+
+      .teacher-welcome h2 {
+        font-family: "Merriweather", serif;
+        font-size: 2rem;
+        color: #954d9c;
+        margin-bottom: 10px;
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .teacher-welcome-animate {
+        animation: teacherWelcome 1.5s ease-out forwards;
+      }
+
+      @keyframes teacherWelcome {
+        0% {
+          opacity: 0;
+          transform: translateX(-50px);
+        }
+        60% {
+          opacity: 1;
+          transform: translateX(10px);
+        }
+        80% {
+          transform: translateX(-5px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .teacher-subtitle {
+        font-family: "Source Serif Pro", serif;
+        font-size: 1.1rem;
+        color: #a055a7;
+        opacity: 0;
+        animation: teacherSubtitle 1s ease-out 0.8s forwards;
+      }
+
+      @keyframes teacherSubtitle {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
-</head>
-<body>
-<div class="container">
-    <div class="header">
-        <div class="title">University — Teacher</div>
-        <div>
-            <span>Welcome, <span id="username">Teacher</span></span>
-            &nbsp;|&nbsp;
-            <a href="#" id="signOutBtn">Sign out</a>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a href="#" id="signOutBtn">Sign out</a>
+      </div>
+
+      <div class="university-brand">
+        <div class="university-name">ELARNEM UNIVERSITY</div>
+      </div>
+
+      <div class="teacher-welcome">
+        <h2 id="teacherWelcome">Welcome,</h2>
+        <div class="teacher-subtitle" id="teacherSubtitle">
+          View and Edit student course information
         </div>
+      </div>
+
+      <h2 style="font-family: 'Merriweather', serif; color: #9c4d82">
+        Your Courses
+      </h2>
+      <div id="teacherCourses" class="courses"></div>
     </div>
 
-    <h2>Your Courses</h2>
-    <div id="teacherCourses" class="courses"></div>
-</div>
+    <script src="script.js"></script>
+    <script>
+      // Teacher  Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const teacherWelcome = document.getElementById("teacherWelcome");
+        const teacherSubtitle = document.getElementById("teacherSubtitle");
 
-<script src="script.js"></script>
-</body>
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (user && user.username) {
+          // activates animation
+          teacherWelcome.innerHTML = `Welcome, ${user.username}!`;
+          teacherSubtitle.textContent = `View and Edit student course information`;
+
+          //animation time
+          setTimeout(() => {
+            teacherWelcome.classList.add("teacher-welcome-animate");
+            teacherSubtitle.style.display = "block";
+          }, 300);
+        }
+      });
+    </script>
+  </body>
 </html>

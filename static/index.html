@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-<div class="login-container">
-    <h2>University Login</h2>
-    <form id="loginForm">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div style="text-align: center; margin-bottom: 35px">
+        <div class="university-title">ELARNEM UNIVERSITY</div>
+      </div>
+      <h2>University Login</h2>
+      <form id="loginForm">
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" placeholder="Enter username" required>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter username"
+          required
+        />
 
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter password" required>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
 
         <button type="submit">Login</button>
-        <p id="errorMessage" style="color: red; text-align: center; margin-top: 10px;"></p>
-    </form>
-</div>
+        <p
+          id="errorMessage"
+          style="color: red; text-align: center; margin-top: 10px"
+        ></p>
+      </form>
+    </div>
 
-<script src="script.js"></script>
-
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>

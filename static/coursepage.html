@@ -1,52 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>University — Student</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Serif+Pro:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>University - Student</title>
     <style>
-        body { margin:0; font-family: 'Times New Roman', Times, serif; background-color:#e5ecf6; }
-        .container { width:80%; margin:20px auto; background:#fff; border:1px solid #9ba7ba; padding:15px; }
-        .header { display:flex; justify-content:space-between; align-items:center; font-size:1.1rem; margin-bottom:10px; }
-        .header a { color:#587bbd; text-decoration:none; font-weight:bold; }
-        .tab-menu { display:flex; background:#587bbd; color:#fff; margin-top:10px; }
-        .tab-menu div { padding:10px 40px; cursor:pointer; }
-        .tab-menu div.active { background:#8da8d8; }
-        table { width:100%; border-collapse:collapse; background:#2c4d85; color:#fff; margin-top:16px; }
-        th, td { border:1px solid #9db4d6; padding:8px 10px; text-align:left; }
-        th { background:#7392c2; }
-        .empty { color:#2c4d85; background:#e5ecf6; padding:10px; border:1px solid #9db4d6; margin-top:16px; }
-        button { padding:6px 12px; cursor:pointer; background:#587bbd; color:#fff; border:none; border-radius:4px; }
-        button:hover { background:#2c4d85; }
-        button.full { background:#c74343; }
-        button.full:hover { background:#9a3535; }
-        button[disabled] { cursor:not-allowed; opacity:0.5; background:#9ba7ba; }
-        .section { margin-top:16px; }
+      body {
+        margin: 0;
+        font-family: "Times New Roman", Times, serif;
+        background-color: #f9f0f5;
+      }
+      .container {
+        width: 80%;
+        margin: 20px auto;
+        background: #fff;
+        border: 1px solid #d4b0c7;
+        padding: 15px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .header a {
+        color: #d8a7ca;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .tab-menu {
+        display: flex;
+        background: #d8a7ca;
+        color: #fff;
+        margin-top: 10px;
+      }
+      .tab-menu div {
+        padding: 10px 40px;
+        cursor: pointer;
+      }
+      .tab-menu div.active {
+        background: #e8c6dc;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #9c4d82;
+        color: #fff;
+        margin-top: 16px;
+      }
+      th,
+      td {
+        border: 1px solid #d4b0c7;
+        padding: 8px 10px;
+        text-align: left;
+      }
+      th {
+        background: #c685b5;
+      }
+      .empty {
+        color: #9c4d82;
+        background: #f5e6ef;
+        padding: 10px;
+        border: 1px solid #d4b0c7;
+        margin-top: 16px;
+      }
+      button {
+        padding: 6px 12px;
+        cursor: pointer;
+        background: #d8a7ca;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+      }
+      button:hover {
+        background: #9c4d82;
+      }
+      button.full {
+        background: #c74343;
+      }
+      button.full:hover {
+        background: #9a3535;
+      }
+      button[disabled] {
+        cursor: not-allowed;
+        opacity: 0.5;
+        background: #d4b0c7;
+      }
+      .section {
+        margin-top: 16px;
+      }
+
+      .university-brand {
+        text-align: center;
+        margin: 10px 0 20px 0;
+        padding: 15px;
+        border-bottom: 2px solid #f5e6ef;
+      }
+
+      .university-name {
+        font-family: "Merriweather", serif;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #9c4d82;
+        letter-spacing: 1px;
+        margin: 0;
+      }
+
+      /* Welcome animation*/
+      .welcome-container {
+        text-align: center;
+        margin: 20px 0;
+        padding: 20px;
+      }
+
+      .welcome-message {
+        font-family: "Merriweather", serif;
+        font-size: 2rem;
+        font-weight: bold;
+        color: #9c4d82;
+        margin-bottom: 10px;
+      }
+
+      .welcome-subtitle {
+        font-family: "Source Serif Pro", serif;
+        font-size: 1.2rem;
+        color: #d8a7ca;
+      }
+
+      .welcome-animate {
+        animation: welcomeEntrance 1.2s ease-out forwards;
+      }
+
+      @keyframes welcomeEntrance {
+        0% {
+          opacity: 0;
+          transform: scale(0.8) translateY(-20px);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05) translateY(0);
+          text-shadow: 0 0 20px rgba(156, 77, 130, 0.3);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+          text-shadow: none;
+        }
+      }
+
+      .subtitle-animate {
+        animation: subtitleEntrance 0.8s ease-out 0.4s forwards;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      @keyframes subtitleEntrance {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
     </style>
-</head>
-<body>
-<div class="container">
-    <div class="header">
-        <span>Welcome <span id="username">Student</span>!</span>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <span></span>
         <a href="#" id="signOutBtn">Sign out</a>
-    </div>
+      </div>
 
-    <h2 style="text-align:center;">University</h2>
+      <div class="university-brand">
+        <div class="university-name">ELARNEM UNIVERSITY</div>
+      </div>
 
-    <div class="tab-menu">
+      <div class="welcome-container">
+        <div class="welcome-message" id="welcomeMessage">
+          Welcome to University!
+        </div>
+        <div class="welcome-subtitle" id="welcomeSubtitle">
+          View, Select, and Change offered courses below
+        </div>
+      </div>
+
+      <div class="tab-menu">
         <div id="tabMy" class="active">Your Courses</div>
         <div id="tabAdd">Add Courses</div>
-    </div>
+      </div>
 
-    <div id="mySection" class="section">
+      <div id="mySection" class="section">
         <div id="myCourses"></div>
-    </div>
+      </div>
 
-    <div id="addSection" class="section" style="display:none;">
+      <div id="addSection" class="section" style="display: none">
         <div id="allCourses"></div>
+      </div>
     </div>
-</div>
 
-<script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+    <script>
+      // welcome Animation
+      document.addEventListener("DOMContentLoaded", function () {
+        const welcomeMessage = document.getElementById("welcomeMessage");
+        const welcomeSubtitle = document.getElementById("welcomeSubtitle");
+
+        // Get user from localStorage
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (user && user.username) {
+          //Personalize welcome message
+          const welcomeText = `Welcome back, ${user.username}!`;
+          welcomeMessage.textContent = welcomeText;
+
+          //plays on  animation on page load
+          setTimeout(() => {
+            welcomeMessage.classList.add("welcome-animate");
+            welcomeSubtitle.classList.add("subtitle-animate");
+          }, 300);
+        }
+      });
+    </script>
+  </body>
 </html>
